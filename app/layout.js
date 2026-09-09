@@ -1,4 +1,5 @@
 import Script from "next/script";
+import Analytics from "@/components/Analytics";
 import { IBM_Plex_Sans_Arabic, Noto_Sans_Arabic, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -71,6 +72,7 @@ export default function RootLayout({ children }) {
     <html lang="ar" dir="rtl" className={`${display.variable} ${body.variable} ${mono.variable}`}>
       <body>
         {children}
+        <Analytics />
         <Script id="snap-pixel" strategy="afterInteractive">{`
 (function(e,t,n){if(e.snaptr)return;var a=e.snaptr=function(){
 a.handleRequest?a.handleRequest.apply(a,arguments):a.queue.push(arguments)};

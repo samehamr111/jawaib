@@ -49,6 +49,9 @@ export default function LeadModal() {
       e.preventDefault();
       opener.current = a;
       setOpen(true);
+      /* mid-funnel signal: opened-form vs completed-form is the drop-off
+         we can actually diagnose at Wave 1 volumes */
+      window.snaptr?.("track", "VIEW_CONTENT");
     };
     const onKey = (e) => { if (e.key === "Escape") close(); };
     document.addEventListener("click", onClick);
