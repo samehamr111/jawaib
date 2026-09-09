@@ -476,7 +476,7 @@ export default function Page() {
           </svg>
           <span className="logo__word u-1rem">جاوب</span>
         </a>
-        <span>عميلك سأل. جاوبناه. · نموذج تصميم أولي — الأسماء والأرقام في المحادثة أمثلة توضيحية</span>
+        <span>عميلك سأل. جاوبناه.</span>
       </div>
     </div>
   </section>
