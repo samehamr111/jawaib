@@ -460,10 +460,6 @@ export default function Page() {
 
       <div className="ident">
         <div>
-          <h4>الاسم التجاري</h4>
-          <p>[يُضاف بعد التسجيل] · جاوب</p>
-        </div>
-        <div>
           <h4>التواصل</h4>
           <p>ops@jawib-ksa.com</p>
         </div>
@@ -478,7 +474,7 @@ export default function Page() {
           <svg className="logo__mark" width="26" height="26" viewBox="0 0 48 48" fill="none" aria-hidden="true">
             <path d="M13.2 12.6 17.4 16.8M24 7v5.8M34.8 12.6 30.6 16.8" stroke="var(--accent)" strokeWidth="3.1" strokeLinecap="round"/><circle cx="24" cy="18.6" r="2.9" fill="var(--accent)"/><path d="M10.5 37.2C10.5 26 16.5 20.4 24 20.4s13.5 5.6 13.5 16.8Z" fill="var(--accent)"/><rect x="8" y="38.4" width="32" height="5" rx="2.5" fill="var(--accent)"/>
           </svg>
-          <span className="logo__word" className="u-1rem">جاوب</span>
+          <span className="logo__word u-1rem">جاوب</span>
         </a>
         <span>عميلك سأل. جاوبناه. · نموذج تصميم أولي — الأسماء والأرقام في المحادثة أمثلة توضيحية</span>
       </div>
