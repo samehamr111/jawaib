@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://jawib-ksa.com/sitemap.xml

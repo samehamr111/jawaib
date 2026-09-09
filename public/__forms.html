@@ -1,0 +1,18 @@
+<!-- Build-time form detection only. Netlify scans static HTML at deploy;
+     Next.js App Router pages aren't written as static files, so the real
+     form in components/LeadModal.js would never be registered without this.
+     Field names here MUST match the live form exactly. -->
+<html>
+  <head><title>forms</title></head>
+  <body>
+    <form name="lead" data-netlify="true" netlify-honeypot="company" hidden>
+      <input type="hidden" name="form-name" value="lead" />
+      <input type="text" name="company" />
+      <input type="text" name="name" />
+      <input type="tel" name="phone" />
+      <input type="url" name="page" />
+      <input type="text" name="business" />
+      <input type="text" name="source" />
+    </form>
+  </body>
+</html>
