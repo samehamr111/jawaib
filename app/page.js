@@ -487,44 +487,6 @@ export default function Page() {
 
 </main>
 
-<div className="ovl" id="ovl" role="dialog" aria-modal="true" aria-labelledby="mt">
-  <div className="modal" id="mbox">
-    <button className="modal__x" id="mx" aria-label="إغلاق">&times;</button>
-    <h3 id="mt">اطلب مراجعة مجانية لصفحتك</h3>
-    <p>اترك رقمك ونجاوبك على واتساب خلال يوم عمل — برأي صريح، وبدون التزام.</p>
-    <form id="lead" novalidate>
-      <div className="field">
-        <label htmlFor="l-name">الاسم</label>
-        <input id="l-name" name="name" type="text" autoComplete="name" required />
-      </div>
-      <div className="field">
-        <label htmlFor="l-wa">رقم الجوال (واتساب)</label>
-        <input id="l-wa" name="phone" type="tel" inputMode="tel" autoComplete="tel" placeholder="05xxxxxxxx" required />
-      </div>
-      <div className="field">
-        <label htmlFor="l-url">رابط صفحتك أو حسابك <span className="u-opt">(اختياري)</span></label>
-        <input id="l-url" name="page" type="url" inputMode="url" placeholder="https://" />
-      </div>
-      <div className="field">
-        <label htmlFor="l-biz">نوع النشاط</label>
-        <select id="l-biz" name="business">
-          <option>عيادة أو مركز طبي</option>
-          <option>مركز تدريب أو مدرّب</option>
-          <option>مكتب عقاري</option>
-          <option>متجر إلكتروني</option>
-          <option>نشاط آخر</option>
-        </select>
-      </div>
-      <button className="btn btn--primary btn--block" type="submit" id="lsend">أرسل الطلب</button>
-      <p className="modal__fine">نستخدم رقمك للتواصل بخصوص طلبك فقط، ولا نشاركه مع أي جهة. يمكنك طلب حذف بياناتك في أي وقت.</p>
-    </form>
-    <p className="modal__alt">تفضّل البريد؟ راسلنا على <a href="mailto:ops@jawib-ksa.com">ops@jawib-ksa.com</a></p>
-  </div>
-</div>
-
-
-
-
 {/* sticky mobile dock */}
 <div className="dock">
   <div className="dock__price"><b>من 1,990 ﷼</b><span>تسليم 5 أيام</span></div>

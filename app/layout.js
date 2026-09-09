@@ -1,3 +1,4 @@
+import Script from "next/script";
 import { IBM_Plex_Sans_Arabic, Noto_Sans_Arabic, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -55,7 +56,7 @@ export const metadata = {
     follow: true,
     googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
   },
-  icons: { icon: "/favicon.svg", apple: "/apple-touch-icon.png" },
+  icons: { icon: "/favicon.svg" },
 };
 
 export const viewport = {
@@ -68,7 +69,18 @@ export const viewport = {
 export default function RootLayout({ children }) {
   return (
     <html lang="ar" dir="rtl" className={`${display.variable} ${body.variable} ${mono.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Script id="snap-pixel" strategy="afterInteractive">{`
+(function(e,t,n){if(e.snaptr)return;var a=e.snaptr=function(){
+a.handleRequest?a.handleRequest.apply(a,arguments):a.queue.push(arguments)};
+a.queue=[];var s='script';r=t.createElement(s);r.async=!0;r.src=n;
+var u=t.getElementsByTagName(s)[0];u.parentNode.insertBefore(r,u);})
+(window,document,'https://sc-static.net/scevent.min.js');
+snaptr('init','364c2c01-76c0-4d4d-a4b6-9f15c1444e6f',{});
+snaptr('track','PAGE_VIEW');
+`}</Script>
+      </body>
     </html>
   );
 }

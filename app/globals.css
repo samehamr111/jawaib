@@ -270,3 +270,21 @@ a{color:inherit;}
 .u-opt{font-weight:400;color:var(--fg-faint);}
 
 .close--single{grid-template-columns:1fr;max-width:760px;margin-inline:auto;}
+
+/* --- form input behaviour ------------------------------------------------ */
+/* Latin-entry fields sit LTR inside an RTL page. Align them left so the caret
+   starts where typing starts; `text-align:end` parked it on the wrong edge. */
+.field input[type=tel],.field input[type=url],.field input[type=email],
+.form input[type=tel],.form input[type=url],.form input[type=email],
+.modal input[type=tel],.modal input[type=url],.modal input[type=email]{
+  direction:ltr;text-align:left;
+}
+/* Number spinners overlap right-aligned digits and hide the caret; the wheel
+   also silently edits values on scroll. inputMode=numeric covers mobile. */
+.field input[type=number]{appearance:textfield;-moz-appearance:textfield;direction:ltr;text-align:left;}
+.field input[type=number]::-webkit-outer-spin-button,
+.field input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0;}
+.field input,.form input,.modal input,.modal select,.form select{cursor:text;}
+.modal select,.form select{cursor:pointer;}
+.err{display:block;margin-block-start:.3rem;font-size:.78rem;color:#A8482A;font-weight:600;}
+input[aria-invalid=true]{border-color:#A8482A !important;}
