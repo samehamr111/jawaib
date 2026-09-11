@@ -161,7 +161,7 @@ export default function Page() {
               <WaIcon />راجع صفحتي على واتساب
             </a>
           ) : null}
-          <a className={`btn ${waHref ? "btn--ghost" : "btn--primary"}`} href="#lead-form">أرسل رابط صفحتك — مراجعة مجانية
+          <a className={`btn ${waHref ? "btn--ghost" : "btn--primary"}`} href="#lead-form">اترك رقمك — مراجعة مجانية
           </a>
           <a className="btn btn--ghost" href="#pricing">اطّلع على الأسعار</a>
         </div>
