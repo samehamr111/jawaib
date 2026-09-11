@@ -18,8 +18,8 @@
   --step-3:1.875rem; --step-4:2.5rem; --step-5:3.125rem;
   --sp-1:.5rem; --sp-2:.875rem; --sp-3:1.25rem; --sp-4:2rem; --sp-5:3rem; --sp-6:4.5rem;
   --display:var(--font-display),"Segoe UI",system-ui,sans-serif;
-  --body:var(--font-body),var(--font-display),system-ui,sans-serif;
-  --mono:var(--font-mono),ui-monospace,SFMono-Regular,Menlo,monospace;
+  --body:var(--font-display),"Segoe UI",system-ui,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
 }
 
 *,*::before,*::after{box-sizing:border-box;}

@@ -1,24 +1,16 @@
 import Script from "next/script";
 import Analytics from "@/components/Analytics";
-import { IBM_Plex_Sans_Arabic, Noto_Sans_Arabic, IBM_Plex_Mono } from "next/font/google";
+import { IBM_Plex_Sans_Arabic } from "next/font/google";
 import "./globals.css";
 
+/* One family, four weights. Three families meant 11 preloaded files and 408 KB
+   fetched at top priority before anything painted — which cost 38% of paid clicks
+   between the swipe and the page. Body now shares this face; mono falls through to
+   the system stack, which costs nothing to download. */
 const display = IBM_Plex_Sans_Arabic({
   subsets: ["arabic", "latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-display",
-  display: "swap",
-});
-const body = Noto_Sans_Arabic({
-  subsets: ["arabic"],
-  weight: ["400", "500", "600"],
-  variable: "--font-body",
-  display: "swap",
-});
-const mono = IBM_Plex_Mono({
-  subsets: ["latin"],
-  weight: ["500", "600"],
-  variable: "--font-mono",
   display: "swap",
 });
 
@@ -69,7 +61,7 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="ar" dir="rtl" className={`${display.variable} ${body.variable} ${mono.variable}`}>
+    <html lang="ar" dir="rtl" className={display.variable}>
       <body>
         {children}
         <Analytics />
