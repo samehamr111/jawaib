@@ -48,6 +48,8 @@ a{color:inherit;}
 .btn--ghost:hover{border-color:var(--accent);color:var(--accent);}
 .btn--sm{min-height:42px;padding:.45rem 1rem;font-size:var(--step--1);}
 .btn--block{width:100%;}
+.btn__wa{flex:0 0 auto;}
+.dock .btn--wa{flex:1.4;}
 
 /* inline CTA rail after peak-desire moments */
 .rail{margin-block-start:var(--sp-4);display:flex;flex-wrap:wrap;align-items:center;gap:var(--sp-3);background:var(--accent-wash);border-radius:14px;padding:var(--sp-3) var(--sp-4);}
@@ -256,7 +258,6 @@ a{color:inherit;}
   .proof__item:first-child{border-block-start:0;}
   .tier--lift{order:-1;}
   .dock{display:flex;}
-  .hero__cta{display:none;}
 }
 @media (min-width:901px){ body{padding-block-end:0;} }
 @media (prefers-reduced-motion:reduce){

@@ -1,6 +1,22 @@
 import Calculator from "@/components/Calculator";
 import LeadModal from "@/components/LeadModal";
 
+/* Business WhatsApp number, full international form, digits only — e.g. "966512345678".
+   Leave it empty and every WhatsApp button disappears rather than shipping a dead link. */
+const WHATSAPP = "";
+const WA_TEXT = "السلام عليكم، أبغى مراجعة مجانية لصفحتي";
+const waHref = WHATSAPP ? `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(WA_TEXT)}` : null;
+
+/* Inherits currentColor — deliberately clay, never WhatsApp green. The brand review ruled
+   that green out: beside a chat product it reads as "add-on" rather than "brand". */
+function WaIcon({ size = 18 }) {
+  return (
+    <svg className="btn__wa" width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.23 8.23 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24a8.2 8.2 0 0 1 8.24 8.25c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42-.14 0-.31-.02-.47-.02-.16 0-.43.06-.65.31-.23.25-.86.84-.86 2.05s.88 2.38 1 2.54c.12.17 1.73 2.63 4.18 3.69.58.25 1.04.4 1.4.52.59.18 1.12.16 1.55.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.11-.22-.17-.47-.29Z"/>
+    </svg>
+  );
+}
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
@@ -140,7 +156,12 @@ export default function Page() {
         <p className="hero__what">يردّ على أسئلة عملائك، ويعطيهم الأسعار، ويحجز لهم موعدًا — ثم يحوّلهم إليك على واتساب وقد عرفوا كل شيء. جاهز خلال خمسة أيام، بدفعة واحدة.</p>
         <p className="hero__sub">ليست صفحة هبوط فقط — هي نقطة الاستقبال التي تلتقط كل من ضغط على إعلانك، بدل أن يصل إلى نموذج صامت أو رسالة بلا رد.</p>
         <div className="hero__cta">
-          <a className="btn btn--primary" href="#lead-form">أرسل رابط صفحتك — مراجعة مجانية
+          {waHref ? (
+            <a className="btn btn--primary btn--wa" href={waHref} target="_blank" rel="noopener noreferrer">
+              <WaIcon />راجع صفحتي على واتساب
+            </a>
+          ) : null}
+          <a className={`btn ${waHref ? "btn--ghost" : "btn--primary"}`} href="#lead-form">أرسل رابط صفحتك — مراجعة مجانية
           </a>
           <a className="btn btn--ghost" href="#pricing">اطّلع على الأسعار</a>
         </div>
@@ -486,7 +507,12 @@ export default function Page() {
 {/* sticky mobile dock */}
 <div className="dock">
   <div className="dock__price"><b>من 1,990 ﷼</b><span>تسليم 5 أيام</span></div>
-  <a className="btn btn--primary" href="#lead-form">مراجعة مجانية
+  {waHref ? (
+    <a className="btn btn--primary btn--wa" href={waHref} target="_blank" rel="noopener noreferrer">
+      <WaIcon size={17} />واتساب
+    </a>
+  ) : null}
+  <a className={`btn ${waHref ? "btn--ghost" : "btn--primary"}`} href="#lead-form">مراجعة مجانية
   </a>
 </div>
       <LeadModal />

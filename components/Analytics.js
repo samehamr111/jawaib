@@ -16,6 +16,10 @@ import { useEffect } from "react";
  *   CUSTOM_EVENT_5  email_click      took the mailto path, otherwise invisible
  *
  * Each fires at most once per page load, so counts read as people, not actions.
+ *
+ * A WhatsApp click is a lead by any useful definition, so it fires SIGN_UP rather
+ * than burning a sixth slot we do not have. The description separates the two
+ * paths in reporting while Snap still optimises toward a single conversion.
  */
 
 const fired = new Set();
@@ -80,6 +84,11 @@ export default function Analytics() {
     };
     const onClick = (e) => {
       if (e.target.closest?.('a[href^="mailto:"]')) track("CUSTOM_EVENT_5", "email_click");
+      if (e.target.closest?.('a[href*="wa.me/"]')) {
+        /* Not routed through track(): that helper dedupes on the description and
+           would swallow a SIGN_UP the form later fires for the same visitor. */
+        window.snaptr?.("track", "SIGN_UP", { description: "whatsapp" });
+      }
     };
 
     document.addEventListener("input", onInput, true);

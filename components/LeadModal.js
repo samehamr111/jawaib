@@ -68,7 +68,10 @@ export default function LeadModal() {
     const e = {};
     if (!String(data.name || "").trim()) e.name = "اكتب اسمك";
     if (!normalisePhone(data.phone || "")) e.phone = "رقم جوال سعودي غير صحيح — مثال: 0512345678";
-    if (!EMAIL_RE.test(String(data.email || "").trim())) e.email = "بريد إلكتروني غير صحيح";
+    /* Optional: the promise on this page is a WhatsApp reply, so a phone number is
+       the only contact detail we actually need. Still format-checked when supplied. */
+    const mail = String(data.email || "").trim();
+    if (mail && !EMAIL_RE.test(mail)) e.email = "بريد إلكتروني غير صحيح";
     return e;
   }
 
@@ -101,7 +104,7 @@ export default function LeadModal() {
       if (!res.ok) throw new Error("submit failed");
       setState("done");
       if (typeof window !== "undefined") {
-        window.snaptr?.("track", "SIGN_UP");
+        window.snaptr?.("track", "SIGN_UP", { description: "form" });
         window.fbq?.("track", "Lead");
       }
     } catch {
@@ -156,7 +159,7 @@ export default function LeadModal() {
               </div>
 
               <div className="field">
-                <label htmlFor="l-mail">البريد الإلكتروني</label>
+                <label htmlFor="l-mail">البريد الإلكتروني <span className="u-opt">(اختياري)</span></label>
                 <input id="l-mail" name="email" type="email" inputMode="email" autoComplete="email"
                   placeholder="name@example.com"
                   aria-invalid={errors.email ? "true" : undefined}
